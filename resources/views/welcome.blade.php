@@ -10,6 +10,7 @@
                     <h3>A dead simple Markdown journal writer</h3>
                     <hr>
                     <p><em>A case study by Ted Mathew dela Cruz for integrating Laravel 5.2, ReactJS and Redux</em></p>
+                    <p><small><a href="">Source Code</a></small></p>
                 </div>
             </div>
         </div>

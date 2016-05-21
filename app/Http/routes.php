@@ -7,3 +7,6 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+Route::post('/entry', 'EntriesController@create');
+Route::get('/entries', 'EntriesController@get');

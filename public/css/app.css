@@ -8,4 +8,12 @@
 body {
   font-family: CentumaSansLight, sans-serif; }
 
+.btn,
+.form-control,
+.panel {
+  border-radius: 0; }
+
+textarea {
+  resize: none; }
+
 /*# sourceMappingURL=app.css.map */

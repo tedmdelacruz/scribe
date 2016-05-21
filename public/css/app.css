@@ -8,6 +8,10 @@
 body {
   font-family: CentumaSansLight, sans-serif; }
 
+.entry p {
+  text-align: justify;
+  line-height: 2em; }
+
 .btn,
 .form-control,
 .panel {

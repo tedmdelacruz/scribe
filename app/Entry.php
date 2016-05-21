@@ -14,6 +14,6 @@ class Entry extends Model
 
     public function user()
     {
-        $this->belongsTo(User::name);
+        return $this->belongsTo(User::class);
     }
 }

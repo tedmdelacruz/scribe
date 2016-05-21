@@ -13,7 +13,9 @@ class EntriesController extends Controller
     {
         $entry = new Entry($request->all());
         $entry->user_id = Auth::user()->id;
-        return $entry;
+        $entry->save();
+       
+        return back();
     }
 
     public function get()

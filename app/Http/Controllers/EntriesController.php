@@ -13,6 +13,8 @@ class EntriesController extends Controller
     {
         $entry = new Entry($request->all());
         $entry->user_id = Auth::user()->id;
+        $entry->is_private = false;
+        $entry->status = Entry::STATUS_PUBLISHED;
         $entry->save();
        
         return back();

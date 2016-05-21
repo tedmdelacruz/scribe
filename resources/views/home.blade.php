@@ -19,19 +19,19 @@
                                 placeholder="Content"></textarea>
                         </div>
 
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="checkbox">
                                 <label>
                                     <input type="checkbox">
                                     Is Private?
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group">
                             <div class="btn-group pull-right">
                                 <button class="btn btn-primary">Publish</button>
-                                <button class="btn btn-default">Save as Draft</button>
+                                <!-- <button class="btn btn-default">Save as Draft</button> -->
                             </div>
                         </div>
                     </form>

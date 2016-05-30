@@ -14,7 +14,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        $entries = Entry::with('user')->get();
+        $entries = Entry::getActiveEntries();
+
         return view('home', compact('entries'));
     }
 }

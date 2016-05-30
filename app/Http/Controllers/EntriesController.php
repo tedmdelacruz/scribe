@@ -22,6 +22,12 @@ class EntriesController extends Controller
 
     public function get()
     {
-        return Entry::all();
+        return Entry::getActiveEntries();
+    }
+
+    public function delete(Entry $entry)
+    {
+        $entry->disable();
+        return back();
     }
 }

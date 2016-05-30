@@ -46,6 +46,15 @@
                         <hr>
                         <p>{{ $entry->content }}</p>
                         <small><em>Written by: {{ $entry->user->name }} on {{ $entry->created_at }}</em></small>
+                        @if ($entry->user->id === Auth::user()->id)
+                            <div class="pull-right">
+                                <form action="{{ url('/entry', $entry->id) }}" method="post">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button class="btn btn-sm btn-link">Delete</button>
+                                </form>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @empty

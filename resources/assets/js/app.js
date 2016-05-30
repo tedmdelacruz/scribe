@@ -1,6 +1,15 @@
-let x = 1;
-let test = () => {
-    return x + x;
-};
+import React from 'react'
+import { render } from 'react-dom'
+import { createStore } from 'redux'
+import { Provider, connect } from 'react-redux'
+import reducer from './reducer'
+import { EntriesList } from './containers'
 
-console.log('Hello, 1 + 1 is = ' + test());
+const store = createStore(reducer)
+
+render(
+    <Provider store={store}>
+        <EntriesList />
+    </Provider>,
+    document.getElementById('app')
+)

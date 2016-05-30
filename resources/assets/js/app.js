@@ -3,13 +3,20 @@ import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider, connect } from 'react-redux'
 import reducer from './reducer'
-import { EntriesList } from './containers'
+import { EntryForm, EntryList } from './containers'
 
 const store = createStore(reducer)
 
 render(
     <Provider store={store}>
-        <EntriesList />
+        <EntryForm />
     </Provider>,
-    document.getElementById('app')
+    document.getElementById('entry-form')
+)
+
+render(
+    <Provider store={store}>
+        <EntryList />
+    </Provider>,
+    document.getElementById('entry-list')
 )

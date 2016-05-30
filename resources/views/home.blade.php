@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" id="app">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-body" id="journal-new-entry">
+                <div class="panel-body" id="entry-form">
                     <!-- TODO Convert to a React Component -->
                     <form method="post" action="{{ url('/entry') }}">
                         {{ csrf_field() }}
@@ -38,34 +38,35 @@
                 </div>
             </div>
 
-            @forelse ($entries as $entry)
-                <div class="panel panel-default entry">
-                    <div class="panel-body">
-                        <!-- TODO Convert to a React Component -->
-                        <h3>{{ $entry->title }}</h3>
-                        <hr>
-                        <p>{{ $entry->content }}</p>
-                        <small><em>Written by: {{ $entry->user->name }} on {{ $entry->created_at }}</em></small>
-                        @if ($entry->user->id === Auth::user()->id)
-                            <div class="pull-right">
-                                <form action="{{ url('/entry', $entry->id) }}" method="post">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-                                    <button class="btn btn-sm btn-link">Delete</button>
-                                </form>
-                            </div>
-                        @endif
+            <div id="entry-list">
+                @forelse ($entries as $entry)
+                    <div class="panel panel-default entry">
+                        <div class="panel-body">
+                            <!-- TODO Convert to a React Component -->
+                            <h3>{{ $entry->title }}</h3>
+                            <hr>
+                            <p>{{ $entry->content }}</p>
+                            <small><em>Written by: {{ $entry->user->name }} on {{ $entry->created_at }}</em></small>
+                            @if ($entry->user->id === Auth::user()->id)
+                                <div class="pull-right">
+                                    <form action="{{ url('/entry', $entry->id) }}" method="post">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+                                        <button class="btn btn-sm btn-link">Delete</button>
+                                    </form>
+                                </div>
+                            @endif
+                        </div>
                     </div>
-                </div>
-            @empty
-                <div class="panel panel-default">
-                    <div class="panel-body" id="journal-all-entries">
-                        <!-- TODO Convert to a React Component -->
-                        <em>No entries yet</em>
+                @empty
+                    <div class="panel panel-default">
+                        <div class="panel-body" id="journal-all-entries">
+                            <!-- TODO Convert to a React Component -->
+                            <em>No entries yet</em>
+                        </div>
                     </div>
-                </div>
-            @endforelse
-
+                @endforelse
+            </div>
 
         </div>
     </div>

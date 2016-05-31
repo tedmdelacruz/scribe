@@ -6,10 +6,10 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h1>Laravel Scribe</h1>
+                    <h1>Scribe</h1>
                     <h3>A dead simple Markdown journal writer</h3>
                     <hr>
-                    <p><em>A case study by Ted Mathew dela Cruz for integrating Laravel 5.2, ReactJS and Redux</em></p>
+                    <p><em>A case study by Ted Mathew dela Cruz for using ReactJS + Redux + Immutable, ECMAScript 6, with a Laravel 5.2 backend</em></p>
                     <p>
                         <small><a href="https://github.com/tedmdelacruz/laravel-scribe">Source Code</a></small>
                     </p>

@@ -27,8 +27,9 @@ export function EntryForm(props) {
             </div>
 
             <div className="form-group">
-                <div className="btn-group pull-right">
-                    <button className="btn btn-primary btn-lg">Publish</button>
+                <div className="btn-group">
+                    <button className="btn btn-link">Save as Draft</button>
+                    <button className="btn btn-link">Publish</button>
                 </div>
             </div>
         </form>
@@ -41,9 +42,7 @@ export function RenderContainer(props) {
     return (
         <div>
             <h1>{title}</h1>
-            <div>
-                {renderedContent}
-            </div>
+            <div dangerouslySetInnerHTML={{ __html: renderedContent }}></div>
         </div>
     )
 }

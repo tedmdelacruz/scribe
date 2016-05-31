@@ -17,9 +17,8 @@
                 </div>
     
                 <div class="form-group">
-                    <div class="btn-group pull-right">
-                        <button class="btn btn-primary btn-lg">Publish</button>
-                        <!-- <button class="btn btn-default">Save as Draft</button> -->
+                    <div class="btn-group">
+                        <button class="btn btn-link btn-lg">Publish</button>
                     </div>
                 </div>
             </form>

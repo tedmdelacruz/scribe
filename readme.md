@@ -7,3 +7,6 @@ A case study project of Ted Mathew dela Cruz for using ReactJS + Redux + Immutab
     npm install
     composer install
     php artisan migrate 
+
+### Todos
+* Research alternatives for `dangerouslySetInnerHTML`

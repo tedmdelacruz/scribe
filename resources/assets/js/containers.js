@@ -9,15 +9,13 @@ export const EntryForm = connect(
     },
     function mapDispatchToProps(dispatch) {
         return {
-            renderMarkdown: text => dispatch(renderMarkdown(text))
+            renderMarkdown: (title, content) => dispatch(renderMarkdown(title, content))
         }
     }
 )(components.EntryForm)
 
 export const RenderContainer = connect(
     function mapStateToProps(state) {
-        return {
-            content: state.content
-        }
+        return state
     }
 )(components.RenderContainer)

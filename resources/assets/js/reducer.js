@@ -1,14 +1,16 @@
 import { RENDER_MARKDOWN } from './actions'
 
-const init = { title: '', text: '', content: '' }
+const init = { title: '', content: '', renderedContent: '' }
 
 function reducer(state = init, action) {
     switch(action.type) {
         case RENDER_MARKDOWN: {
-            return {
-                text:  action.payload.text,
-                content:  action.payload.text // FIXME Render logic here
-            }
+            const {title, content} = action.payload
+
+            // FIXME Render logic here
+            let renderedContent = content 
+
+            return { title, content, renderedContent }
         }
         default:
             return state

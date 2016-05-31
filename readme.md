@@ -7,6 +7,3 @@ A case study project of Ted Mathew dela Cruz for using ReactJS + Redux + Immutab
     npm install
     composer install
     php artisan migrate 
-
-### Todo
-* Look into using Elixir instead of package.json script commands

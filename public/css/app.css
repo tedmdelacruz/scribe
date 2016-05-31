@@ -5,6 +5,10 @@
   font-weight: normal;
   font-style: normal; }
 
+#render-container {
+  min-height: 563px;
+  border: 1px solid #ccc; }
+
 body {
   font-family: CentumaSansLight, sans-serif; }
 

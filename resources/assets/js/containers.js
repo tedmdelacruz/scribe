@@ -11,11 +11,11 @@ export const EntryForm = connect(
     }
 )(components.EntryForm)
 
-export const EntryList = connect(
+export const RenderContainer = connect(
     function mapStateToProps(state) {
         return {}
     },
     function mapDispatchToProps(dispatch) {
         return {}
     }
-)(components.EntryList)
+)(components.RenderContainer)

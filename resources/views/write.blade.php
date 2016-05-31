@@ -2,10 +2,10 @@
 
 @section('content')
 
-<div id="app">
-    <!-- Everything here will be overwritten by React -->
+<div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6" id="entry-form">
+            <!-- Everything here will be overwritten by React -->
             <form method="post" action="/">
                 <div class="form-group">
                     <input type="text" class="form-control input-lg" placeholder="Title" name="title">
@@ -25,14 +25,13 @@
             </form>
         </div>
         <!-- /.col-md-6 -->
-
-        <div class="col-md-6">
-            <div class="rendered-page"></div>
+    
+        <div class="col-md-6" id="render-container">
+            <!-- Everything here will be overwritten by React -->
         </div>
         <!-- /.col-md-6 -->
     </div>
     <!-- /.row -->
 </div>
-<!-- /#app -->
 
 @endsection

@@ -1,4 +1,4 @@
-# Laravel Scribe
+# Scribe
 
 ### A dead simple Markdown journal writer
 

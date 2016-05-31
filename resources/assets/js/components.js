@@ -40,7 +40,7 @@ export function RenderContainer(props) {
     const { title, renderedContent } = props
 
     return (
-        <div>
+        <div className="entry">
             <h1>{title}</h1>
             <div dangerouslySetInnerHTML={{ __html: renderedContent }}></div>
         </div>

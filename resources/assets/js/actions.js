@@ -1,14 +1,10 @@
-export function createEntry(entry) {
+export const RENDER_MARKDOWN = 'RENDER_MARKDOWN'
+
+export function renderMarkdown(text) {
     return {
-        type: 'CREATE_ENTRY',
+        type: RENDER_MARKDOWN,
         payload: {
-
+            text: text
         }
-    }
-}
-
-export function getEntries() {
-    return {
-        type: 'GET_ENTRIES'
     }
 }

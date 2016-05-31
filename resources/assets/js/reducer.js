@@ -1,12 +1,18 @@
-import { List, Map } from 'immutable';
+import { RENDER_MARKDOWN } from './actions'
 
-const init = List([]);
+const init = { title: '', text: '', content: '' }
 
-export default function reducer(entries=init, action) {
+function reducer(state = init, action) {
     switch(action.type) {
-        // FIXME
+        case RENDER_MARKDOWN: {
+            return {
+                text:  action.payload.text,
+                content:  action.payload.text // FIXME Render logic here
+            }
+        }
         default:
-            return entries
+            return state
     }
 }
 
+export default reducer 

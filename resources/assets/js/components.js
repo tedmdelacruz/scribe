@@ -1,16 +1,14 @@
 import React from 'react'
 
-export function Entry(props) {
-    const { entry } = props
+export function EntryForm(props) {
+    const { title, text, content, renderMarkdown } = props
 
-    return (
-        <div>
-            This is an Entry component
-        </div>
-    )
-}
+    const handleChange = (event) => {
+        const textarea = event.target
+        const text = textarea.value
+        renderMarkdown(text)
+    }
 
-export function EntryForm() {
     return (
         <form>
             <div className="form-group">
@@ -19,7 +17,7 @@ export function EntryForm() {
 
             <div className="form-group">
                 <textarea name="content" id="" cols="30" rows="20" className="form-control input-lg"
-                    placeholder="Content"></textarea>
+                    placeholder="Content" onChange={handleChange}></textarea>
             </div>
 
             <div className="form-group">
@@ -31,8 +29,10 @@ export function EntryForm() {
     )
 }
 
-export function RenderContainer() {
+export function RenderContainer(props) {
+    const { content } = props
+
     return (
-        <div></div>
+        <div>{content}</div>
     )
 }

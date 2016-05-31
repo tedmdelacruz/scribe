@@ -1,7 +1,7 @@
 import React from 'react'
 
 export function EntryForm(props) {
-    const { renderMarkdown } = props
+    const { renderMarkdown, publish } = props
     let { title, content } = props
 
     const handleTitleChange = (event) => {
@@ -12,6 +12,11 @@ export function EntryForm(props) {
     const handleContentChange = (event) => {
         content = event.target.value
         renderMarkdown(title, content)
+    }
+
+    const handlePublish = (event) => {
+        event.preventDefault()
+        publish(title, content)
     }
 
     return (
@@ -28,8 +33,7 @@ export function EntryForm(props) {
 
             <div className="form-group">
                 <div className="btn-group">
-                    <button className="btn btn-link">Save as Draft</button>
-                    <button className="btn btn-link">Publish</button>
+                    <button className="btn btn-link" onClick={handlePublish}>Publish</button>
                 </div>
             </div>
         </form>

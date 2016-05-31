@@ -26,7 +26,7 @@ class EntriesController extends Controller
         $entry->status = Entry::STATUS_PUBLISHED;
         $entry->save();
        
-        return back();
+        return $entry;
     }
 
     public function get()
@@ -37,6 +37,6 @@ class EntriesController extends Controller
     public function delete(Entry $entry)
     {
         $entry->disable();
-        return back();
+        return $entry;
     }
 }

@@ -1,5 +1,6 @@
-import { RENDER_MARKDOWN } from './actions'
+import { RENDER_MARKDOWN, PUBLISH_ENTRY } from './actions'
 import { markdown } from 'markdown'
+import axios from 'axios'
 
 const init = {
     title: '',
@@ -15,6 +16,17 @@ function reducer(state = init, action) {
             let renderedContent = markdown.toHTML(content) 
 
             return { title, content, renderedContent }
+        }
+        case PUBLISH_ENTRY: {
+            axios.post('/entry', action.payload)
+                .then((response) => {
+                    debugger
+                })
+                .catch((response) => {
+                    //
+                })
+
+            return state
         }
         default:
             return state

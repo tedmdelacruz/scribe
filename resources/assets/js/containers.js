@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import * as components from './components'
-import { renderMarkdown } from './actions'
+import { renderMarkdown, publish } from './actions'
 
 export const EntryForm = connect(
     function mapStateToProps(state) {
@@ -9,7 +9,8 @@ export const EntryForm = connect(
     },
     function mapDispatchToProps(dispatch) {
         return {
-            renderMarkdown: (title, content) => dispatch(renderMarkdown(title, content))
+            renderMarkdown: (title, content) => dispatch(renderMarkdown(title, content)),
+            publish: (title, content) => dispatch(publish(title, content))
         }
     }
 )(components.EntryForm)

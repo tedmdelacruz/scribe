@@ -1,0 +1,23 @@
+{
+  "name": "scribe",
+  "description": "",
+  "main": "",
+  "authors": [
+    "tedmdelacruz"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/tedmdelacruz/scribe",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}

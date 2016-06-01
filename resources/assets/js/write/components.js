@@ -1,52 +1,58 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export function EntryForm(props) {
-    const { renderMarkdown, publish } = props
-    let { title, content } = props
+export class EntryForm extends Component {
 
-    const handleTitleChange = (event) => {
-        title = event.target.value
-        renderMarkdown(title, content)
-    }
+    render() {
+        const { renderMarkdown, publish } = this.props
+        let { title, content } = this.props
 
-    const handleContentChange = (event) => {
-        content = event.target.value
-        renderMarkdown(title, content)
-    }
+        const handleTitleChange = (event) => {
+            title = event.target.value
+            renderMarkdown(title, content)
+        }
 
-    const handlePublish = (event) => {
-        event.preventDefault()
-        publish(title, content)
-    }
+        const handleContentChange = (event) => {
+            content = event.target.value
+            renderMarkdown(title, content)
+        }
 
-    return (
-        <form>
-            <div className="form-group">
-                <input type="text" className="form-control input-lg"
-                    placeholder="Title" onChange={handleTitleChange} />
-            </div>
+        const handlePublish = (event) => {
+            event.preventDefault()
+            publish(title, content)
+        }
 
-            <div className="form-group">
-                <textarea cols="30" rows="20" className="form-control input-lg"
-                    placeholder="Content" onChange={handleContentChange}></textarea>
-            </div>
-
-            <div className="form-group">
-                <div className="btn-group">
-                    <button className="btn btn-link" onClick={handlePublish}>Publish</button>
+        return (
+            <form>
+                <div className="form-group">
+                    <input type="text" className="form-control input-lg"
+                        placeholder="Title" onChange={handleTitleChange} />
                 </div>
-            </div>
-        </form>
-    )
+
+                <div className="form-group">
+                    <textarea cols="30" rows="20" className="form-control input-lg"
+                        placeholder="Content" onChange={handleContentChange}></textarea>
+                </div>
+
+                <div className="form-group">
+                    <div className="btn-group">
+                        <button className="btn btn-link" onClick={handlePublish}>Publish</button>
+                    </div>
+                </div>
+            </form>
+        )
+    }
 }
 
-export function RenderContainer(props) {
-    const { title, renderedContent } = props
+export class RenderContainer extends Component {
 
-    return (
-        <div className="entry">
-            <h1>{title}</h1>
-            <div dangerouslySetInnerHTML={{ __html: renderedContent }}></div>
-        </div>
-    )
+    render() {
+        const { title, renderedContent } = this.props
+
+        return (
+            <div className="entry">
+                <h1>{title}</h1>
+                <div dangerouslySetInnerHTML={{ __html: renderedContent }}></div>
+            </div>
+        )
+    }
 }

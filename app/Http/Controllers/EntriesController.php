@@ -10,7 +10,6 @@ class EntriesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     public function write()
@@ -21,7 +20,6 @@ class EntriesController extends Controller
     public function create(Request $request)
     {
         $entry = new Entry($request->all());
-        $entry->user_id = Auth::user()->id;
         $entry->is_private = false;
         $entry->status = Entry::STATUS_PUBLISHED;
         $entry->save();

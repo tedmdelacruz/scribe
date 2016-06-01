@@ -13,12 +13,7 @@ class Entry extends Model
     const ACTIVE = 1;
     const INACTIVE = 0;
 
-    protected $fillable = ['title', 'content', 'is_private', 'status', 'is_active'];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    protected $fillable = ['title', 'content','author', 'is_private', 'status', 'is_active'];
 
     public function disable()
     {
@@ -28,12 +23,7 @@ class Entry extends Model
 
     public static function getActiveEntries(User $user = null)
     {
-        $conditions = ['is_active' => Entry::ACTIVE];
-        if ($user) {
-            $conditions['user_id'] = $user->id;
-        }
-
-        $entries = Entry::where($conditions)
+        $entries = Entry::where(['is_active' => Entry::ACTIVE])
             ->with('user')
             ->get();
 

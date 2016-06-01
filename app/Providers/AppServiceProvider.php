@@ -13,7 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share([
+            'app_name' => config('constants.APP_NAME'),
+            'app_desc' => config('constants.APP_DESC')
+        ]);
     }
 
     /**

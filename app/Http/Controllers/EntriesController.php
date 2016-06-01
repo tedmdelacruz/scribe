@@ -8,15 +8,6 @@ use Illuminate\Http\Request;
 
 class EntriesController extends Controller
 {
-    public function __construct()
-    {
-    }
-
-    public function write()
-    {
-        return view('write');
-    }
-
     public function create(Request $request)
     {
         $entry = new Entry($request->all());

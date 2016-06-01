@@ -6,7 +6,13 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/write', 'EntriesController@write');
+Route::get('/write', function () {
+    return view('write');
+});
+
+Route::get('/browse', function () {
+    return view('browse');
+});
 
 Route::post('/entry', 'EntriesController@create');
 

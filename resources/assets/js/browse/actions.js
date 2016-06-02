@@ -25,3 +25,22 @@ export function fetchEntries() {
             })
     }
 }
+
+export const START_DELETE_ENTRY = 'START_DELETE_ENTRY'
+function startDeleteEntry(entry) {
+    return {
+        type: START_DELETE_ENTRY,
+        entry
+    }
+}
+
+export const DELETE_ENTRY = 'DELETE_ENTRY'
+export function deleteEntry(entry) {
+    return dispatch => {
+        dispatch(startDeleteEntry(entry))
+        return axios.delete('/entry/' + entry.id)
+            .then(response => {
+                dispatch(fetchEntries())
+            })
+    }
+}

@@ -22,4 +22,7 @@ Route::post('/entry', 'EntriesController@create');
 
 Route::get('/entries', 'EntriesController@get');
 
-Route::delete('/entry/{entry}', 'EntriesController@delete');
+Route::delete('/entry/{entry}', [
+    'middleware' => 'auth',
+    'uses' => 'EntriesController@delete'
+]);

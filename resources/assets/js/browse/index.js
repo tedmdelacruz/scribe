@@ -17,9 +17,11 @@ const store = createStore(
     )
 )
 
+const user = document.getElementById('entry-list').dataset.user
+
 render(
     <Provider store={store}>
-        <EntryList />
+        <EntryList user={user}/>
     </Provider>,
     document.getElementById('entry-list')
 )

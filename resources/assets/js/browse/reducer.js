@@ -1,9 +1,7 @@
 import { List } from 'immutable'
 
-import {
-    REQUEST_ENTRIES,
-    RECEIVE_ENTRIES
-} from './actions'
+import { REQUEST_ENTRIES, RECEIVE_ENTRIES,
+    START_DELETE_ENTRY } from './actions'
 
 function reducer(state = {
     isFetching: false,
@@ -19,6 +17,9 @@ function reducer(state = {
                 isFetching: false,
                 entries: new List(action.entries)
             })
+        case START_DELETE_ENTRY: 
+            // FIXME
+            return state
         default:
             return state
     }

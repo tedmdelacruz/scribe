@@ -13,7 +13,25 @@ class Entry extends Model
     const ACTIVE = 1;
     const INACTIVE = 0;
 
-    protected $fillable = ['title', 'content','author', 'is_private', 'status', 'is_active'];
+    protected $fillable = ['title', 'content', 'author', 'is_private', 'status', 'is_active'];
+
+    public function publish()
+    {
+        // Generate URL-friendly slug
+        $slug = str_slug($this->title);
+
+        // Handle any slug collisions
+        if (Entry::where(['slug' => $slug])->count() > 0) {
+            $slug = substr(md5($this->title), 0, 6) . '-' . str_slug($this->title);
+        }
+
+        $this->is_private = false;
+        $this->status = Entry::STATUS_PUBLISHED; 
+        $this->slug = $slug;
+        $this->save();
+
+        return $this;
+    }
 
     public function disable()
     {

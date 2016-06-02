@@ -26,3 +26,5 @@ Route::delete('/entry/{entry}', [
     'middleware' => 'auth',
     'uses' => 'EntriesController@delete'
 ]);
+
+Route::get('/{entrySlug}', 'EntriesController@view');

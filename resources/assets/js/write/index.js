@@ -5,7 +5,7 @@ import { Provider, connect } from 'react-redux'
 
 import thunkMiddleware from 'redux-thunk'
 import reducer from './reducer'
-import { EntryForm, RenderContainer } from './containers'
+import { EntryForm, RenderContainer, Permalink } from './containers'
 
 const store = createStore(
     reducer,
@@ -24,4 +24,11 @@ render(
         <RenderContainer />
     </Provider>,
     document.getElementById('render-container')
+)
+
+render(
+    <Provider store={store}>
+        <Permalink />
+    </Provider>,
+    document.getElementById('permalink')
 )

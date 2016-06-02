@@ -25,8 +25,13 @@
         </div>
         <!-- /.col-md-6 -->
     
-        <div class="col-md-6" id="render-container">
-            <!-- Everything here will be overwritten by React -->
+        <div class="col-md-6">
+            <div id="render-container">
+                <!-- Everything here will be overwritten by React -->
+            </div>
+            <div id="permalink">
+                <!-- Everything here will be overwritten by React -->
+            </div>
         </div>
         <!-- /.col-md-6 -->
     </div>

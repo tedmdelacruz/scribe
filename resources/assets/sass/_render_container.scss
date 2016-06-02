@@ -1,3 +1,5 @@
 #render-container > .entry {
-    min-height: 563px;
+    height: 563px;
+    margin-bottom: 15px;
+    overflow-y: scroll;
 }

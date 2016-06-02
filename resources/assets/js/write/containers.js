@@ -20,3 +20,9 @@ export const RenderContainer = connect(
         return state
     }
 )(components.RenderContainer)
+
+export const Permalink = connect(
+    function mapStateToProps(state) {
+        return state
+    }
+)(components.Permalink)

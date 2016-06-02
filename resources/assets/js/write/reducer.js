@@ -33,9 +33,9 @@ function reducer(state = {
             return Object.assign({}, state, {
                 isPublishing: false,
                 isSaved: true,
-                isEditing: true
+                isEditing: true,
+                entry: action.entry
             })
-
         default:
             return state
     }

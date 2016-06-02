@@ -45,6 +45,9 @@
 
     <script src={{ asset('js/vendor/jquery.min.js') }}></script>
     <script src={{ asset('js/vendor/bootstrap.min.js') }}></script>
+    <script>
+        window.baseUrl = "{{ url('/') }}";
+    </script>
 
     @yield('scripts')
 

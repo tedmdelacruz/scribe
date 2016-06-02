@@ -24,10 +24,10 @@ function finishPublish(entry) {
 }
 
 export const PUBLISH_ENTRY = 'PUBLISH_ENTRY'
-export function publish() {
+export function publish(entry) {
     return dispatch => {
         dispatch(startPublish())
-        return axios.post('/entry')
+        return axios.post('/entry', entry)
             .then(response => {
                 dispatch(finishPublish(response.data))
             })

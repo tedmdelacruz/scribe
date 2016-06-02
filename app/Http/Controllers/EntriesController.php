@@ -11,12 +11,12 @@ class EntriesController extends Controller
     public function create(Request $request)
     {
         $entry = new Entry($request->all());
-        $entry->is_private = false;
-        $entry->status = Entry::STATUS_PUBLISHED;
-        return $entry; // REMOVEME
-        $entry->save();
-       
-        return $entry;
+        $newEntry = $entry->publish();
+
+        // Rendered content is not saved, simply returned in response
+        $newEntry->renderedContent = $request->renderedContent;
+
+        return $newEntry;
     }
 
     public function get()
@@ -27,6 +27,15 @@ class EntriesController extends Controller
     public function delete(Entry $entry)
     {
         $entry->disable();
+        return $entry;
+    }
+
+    public function view($slug)
+    {
+        $entry = Entry::where(['slug' => $slug])->get();
+        if ($entry->isEmpty()) {
+            return abort(404);
+        }
         return $entry;
     }
 }

@@ -45,12 +45,6 @@ export class EntryForm extends Component {
                         </button>
                     </div>
                 </div>
-
-                <div className="col-md-12">
-                    <code>isPublishing: {isPublishing ? 'yes' : 'no'}</code>
-                    <code>isSaved: {isSaved ? 'yes' : 'no'}</code>
-                    <code>isEditing: {isEditing ? 'yes' : 'no'}</code>
-                </div>
             </form>
         )
     }

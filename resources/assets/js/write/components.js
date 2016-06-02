@@ -3,22 +3,23 @@ import React, { Component } from 'react'
 export class EntryForm extends Component {
 
     render() {
-        const { renderMarkdown, publish } = this.props
-        let { title, content } = this.props
+        const { renderMarkdown, publish,
+            isPublishing, isPristine } = this.props
+        let { entry } = this.props
 
         const handleTitleChange = (event) => {
-            title = event.target.value
-            renderMarkdown(title, content)
+            entry.title = event.target.value
+            renderMarkdown(entry)
         }
 
         const handleContentChange = (event) => {
-            content = event.target.value
-            renderMarkdown(title, content)
+            entry.content = event.target.value
+            renderMarkdown(entry)
         }
 
         const handlePublish = (event) => {
             event.preventDefault()
-            publish(title, content)
+            publish(entry)
         }
 
         return (
@@ -38,6 +39,11 @@ export class EntryForm extends Component {
                         <button className="btn btn-link" onClick={handlePublish}>Publish</button>
                     </div>
                 </div>
+
+                <div className="col-md-12">
+                    <code>isPublishing: {isPublishing ? 'yes' : 'no'}</code>
+                    <code>isPristine: {isPristine ? 'yes' : 'no'}</code>
+                </div>
             </form>
         )
     }
@@ -46,7 +52,8 @@ export class EntryForm extends Component {
 export class RenderContainer extends Component {
 
     render() {
-        const { title, renderedContent } = this.props
+        const { entry } = this.props
+        const { title, renderedContent } = entry
 
         return (
             <div className="entry">

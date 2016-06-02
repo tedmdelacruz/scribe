@@ -1,22 +1,15 @@
 export const RENDER_MARKDOWN = 'RENDER_MARKDOWN'
-export const PUBLISH_ENTRY = 'PUBLISH_ENTRY'
-
-export function renderMarkdown(title, content) {
+export function renderMarkdown(entry) {
     return {
         type: RENDER_MARKDOWN,
-        payload: {
-            title: title,
-            content: content 
-        }
+        entry
     }
 }
 
-export function publish(title, content) {
+export const REQUEST_PUBLISH_ENTRY = 'REQUEST_PUBLISH_ENTRY'
+export function publish(entry) {
     return {
-        type: PUBLISH_ENTRY,
-        payload: {
-            title: title,
-            content: content 
-        }
+        type: REQUEST_PUBLISH_ENTRY,
+        entry
     }
 }

@@ -9,8 +9,8 @@ export const EntryForm = connect(
     },
     function mapDispatchToProps(dispatch) {
         return {
-            renderMarkdown: (title, content) => dispatch(renderMarkdown(title, content)),
-            publish: (title, content) => dispatch(publish(title, content))
+            renderMarkdown: (entry) => dispatch(renderMarkdown(entry)),
+            publish: (entry) => dispatch(publish(entry))
         }
     }
 )(components.EntryForm)

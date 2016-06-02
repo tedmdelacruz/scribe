@@ -1,33 +1,32 @@
-import { RENDER_MARKDOWN, PUBLISH_ENTRY } from './actions'
+import { RENDER_MARKDOWN, REQUEST_PUBLISH_ENTRY } from './actions'
 import { markdown } from 'markdown'
 import axios from 'axios'
 
-const init = {
-    title: '',
-    content: '',
-    renderedContent: ''
-}
-
-function reducer(state = init, action) {
+function reducer(state = {
+    entry: {
+        title: '',
+        content: '',
+        renderedContent: ''
+    },
+    isPublishing: false,
+    isPristine: true,
+    isSaved: false
+}, action) {
     switch(action.type) {
-        case RENDER_MARKDOWN: {
-            const {title, content} = action.payload
-
-            let renderedContent = markdown.toHTML(content) 
-
-            return { title, content, renderedContent }
-        }
-        case PUBLISH_ENTRY: {
-            axios.post('/entry', action.payload)
-                .then((response) => {
-                    // FIXME
-                })
-                .catch((response) => {
-                    // FIXME
-                })
-
-            return state
-        }
+        case RENDER_MARKDOWN:
+            const { title, content } = action.entry
+            return Object.assign({}, state, {
+                entry: {
+                    title, content, 
+                    renderedContent: markdown.toHTML(action.entry.content)
+                },
+                isPristine: false
+            })
+        case REQUEST_PUBLISH_ENTRY: 
+            return Object.assign({}, state, {
+                isPublishing: true,
+                entry: action.entry
+            })
         default:
             return state
     }

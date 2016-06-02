@@ -20,10 +20,10 @@ function reducer(state = init, action) {
         case PUBLISH_ENTRY: {
             axios.post('/entry', action.payload)
                 .then((response) => {
-                    debugger
+                    // FIXME
                 })
                 .catch((response) => {
-                    //
+                    // FIXME
                 })
 
             return state

@@ -14,6 +14,10 @@ Route::get('/browse', function () {
     return view('browse');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::post('/entry', 'EntriesController@create');
 
 Route::get('/entries', 'EntriesController@get');

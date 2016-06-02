@@ -21,12 +21,8 @@ class Entry extends Model
         return $this->save();
     }
 
-    public static function getActiveEntries(User $user = null)
+    public static function getActiveEntries()
     {
-        $entries = Entry::where(['is_active' => Entry::ACTIVE])
-            ->with('user')
-            ->get();
-
-        return $entries;
+        return Entry::where(['is_active' => Entry::ACTIVE])->get();
     }
 }

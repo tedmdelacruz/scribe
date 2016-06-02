@@ -35,6 +35,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/write') }}">Write</a></li>
                     <li><a href="{{ url('/browse') }}">Browse</a></li>
+                    <li><a href="{{ url('/about') }}">About</a></li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

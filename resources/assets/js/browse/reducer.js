@@ -1,13 +1,24 @@
-// import { ACTION } from './actions'
-import axios from 'axios'
+import { List } from 'immutable'
 
-const init = {}
+import {
+    REQUEST_ENTRIES,
+    RECEIVE_ENTRIES
+} from './actions'
 
-function reducer(state = init, action) {
+function reducer(state = {
+    isFetching: false,
+    entries: new List([])
+}, action) {
     switch(action.type) {
-        // case ACTION: {
-        //     return {}
-        // }
+        case REQUEST_ENTRIES:
+            return Object.assign({}, state, {
+                isFetching: true
+            })
+        case RECEIVE_ENTRIES: 
+            return Object.assign({}, state, {
+                isFetching: false,
+                entries: new List(action.entries)
+            })
         default:
             return state
     }

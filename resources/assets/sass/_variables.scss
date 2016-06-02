@@ -1,6 +1,12 @@
 // Colors
+$grey: #555;
+$grey-light: lighten($grey, 20%);
+$grey-lighter: lighten($grey, 30%);
+$grey-dark: darken($grey, 20%);
 
 // Fonts
 $font-sans-serif: CentumaSansLight, sans-serif;
 $font-serif: Georgia, serif;
 
+// Units
+$base-unit: 40px;

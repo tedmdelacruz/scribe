@@ -1,5 +1,9 @@
 .entry {
+    border: 1px solid $grey-lighter;
+    color: $grey-light;
+    padding: 10px 16px;
     font-size: 1.2em;
+    margin-bottom: $base-unit;
 
     h1 {
         margin: 20px 0;
@@ -7,6 +11,6 @@
 
     p {
         text-align: justify;
-        line-height: 1.5em;
+        line-height: 2em;
     }
 }

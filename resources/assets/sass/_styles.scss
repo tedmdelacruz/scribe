@@ -2,9 +2,9 @@ body {
     font-family: $font-sans-serif;
 }
 
-.entry {
-    p {
-        text-align: justify;
-        line-height: 2em;
-    }
+.spinner {
+    text-align: center;
+    padding: $base-unit;
+    font: italic 2em $font-sans-serif;
+    color: $grey-lighter;
 }

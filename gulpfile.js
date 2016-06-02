@@ -1,5 +1,12 @@
 var elixir = require('laravel-elixir');
 
+elixir.config.js.browserify.watchify = {
+    enabled: true,
+    options: {
+        poll: true
+    }
+}
+
 var dirs = {
     vendorCss: 'public/css/vendor',
     vendorJs: 'public/js/vendor'

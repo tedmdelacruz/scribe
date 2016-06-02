@@ -6,17 +6,17 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/write', function () {
+Route::get('/write', ['as' => 'write', function () {
     return view('write');
-});
+}]);
 
-Route::get('/browse', function () {
+Route::get('/browse', ['as' => 'browse', function () {
     return view('browse');
-});
+}]);
 
-Route::get('/about', function () {
+Route::get('/about', ['as' => 'about', function () {
     return view('about');
-});
+}]);
 
 Route::post('/entry', 'EntriesController@create');
 

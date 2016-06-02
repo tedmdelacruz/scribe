@@ -12,3 +12,10 @@
 textarea {
     resize: none;
 }
+
+.navbar-custom {
+    .navbar-nav > .active > a {
+        background-color: transparent;
+        border-bottom: 2px solid $grey-lighter;
+    }
+}

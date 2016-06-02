@@ -13,6 +13,7 @@ class EntriesController extends Controller
         $entry = new Entry($request->all());
         $entry->is_private = false;
         $entry->status = Entry::STATUS_PUBLISHED;
+        return $entry; // REMOVEME
         $entry->save();
        
         return $entry;

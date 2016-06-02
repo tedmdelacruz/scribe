@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 export const RENDER_MARKDOWN = 'RENDER_MARKDOWN'
 export function renderMarkdown(entry) {
     return {
@@ -6,10 +8,28 @@ export function renderMarkdown(entry) {
     }
 }
 
-export const REQUEST_PUBLISH_ENTRY = 'REQUEST_PUBLISH_ENTRY'
-export function publish(entry) {
+export const START_PUBLISH = 'START_PUBLISH'
+function startPublish() {
     return {
-        type: REQUEST_PUBLISH_ENTRY,
+        type:START_PUBLISH 
+    }
+}
+
+export const FINISH_PUBLISH = 'FINISH_PUBLISH'
+function finishPublish(entry) {
+    return {
+        type: FINISH_PUBLISH,
         entry
+    }
+}
+
+export const PUBLISH_ENTRY = 'PUBLISH_ENTRY'
+export function publish() {
+    return dispatch => {
+        dispatch(startPublish())
+        return axios.post('/entry')
+            .then(response => {
+                dispatch(finishPublish(response.data))
+            })
     }
 }

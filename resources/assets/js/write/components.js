@@ -4,7 +4,8 @@ export class EntryForm extends Component {
 
     render() {
         const { renderMarkdown, publish,
-            isPublishing, isPristine } = this.props
+            isPublishing, isPristine, isSaved,
+            isEditing} = this.props
         let { entry } = this.props
 
         const handleTitleChange = (event) => {
@@ -36,13 +37,19 @@ export class EntryForm extends Component {
 
                 <div className="form-group">
                     <div className="btn-group">
-                        <button className="btn btn-link" onClick={handlePublish}>Publish</button>
+                        <button className="btn btn-link" onClick={handlePublish}>
+                            { !isPublishing && !isSaved && isEditing ? 'Save Changes' : null }
+                            { !isPublishing && !isSaved && !isEditing ? 'Publish' : null }
+                            { isPublishing ? 'Publishing' : null }
+                            { isSaved ? 'Saved' : null }
+                        </button>
                     </div>
                 </div>
 
                 <div className="col-md-12">
                     <code>isPublishing: {isPublishing ? 'yes' : 'no'}</code>
-                    <code>isPristine: {isPristine ? 'yes' : 'no'}</code>
+                    <code>isSaved: {isSaved ? 'yes' : 'no'}</code>
+                    <code>isEditing: {isEditing ? 'yes' : 'no'}</code>
                 </div>
             </form>
         )

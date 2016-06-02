@@ -1,4 +1,5 @@
-import { RENDER_MARKDOWN, REQUEST_PUBLISH_ENTRY } from './actions'
+import { RENDER_MARKDOWN, START_PUBLISH,
+    FINISH_PUBLISH } from './actions'
 import { markdown } from 'markdown'
 import axios from 'axios'
 
@@ -8,8 +9,8 @@ function reducer(state = {
         content: '',
         renderedContent: ''
     },
+    isEditing: false,
     isPublishing: false,
-    isPristine: true,
     isSaved: false
 }, action) {
     switch(action.type) {
@@ -20,13 +21,21 @@ function reducer(state = {
                     title, content, 
                     renderedContent: markdown.toHTML(action.entry.content)
                 },
-                isPristine: false
+                isPristine: false,
+                isSaved: false
             })
-        case REQUEST_PUBLISH_ENTRY: 
+        case START_PUBLISH: 
             return Object.assign({}, state, {
                 isPublishing: true,
-                entry: action.entry
+                isSaved: false
             })
+        case FINISH_PUBLISH:
+            return Object.assign({}, state, {
+                isPublishing: false,
+                isSaved: true,
+                isEditing: true
+            })
+
         default:
             return state
     }

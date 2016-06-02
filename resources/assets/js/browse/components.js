@@ -3,7 +3,8 @@ import { markdown } from 'markdown'
 
 class Entry extends Component {
     render() {
-        let { entry, isAuth, deleteEntry } = this.props
+        const { entry, isAuth, deleteEntry } = this.props
+        const entryPermalink = `${window.baseUrl}/${entry.slug}`
 
         function handleDelete() {
             deleteEntry(this.props.entry)
@@ -17,6 +18,9 @@ class Entry extends Component {
                     dangerouslySetInnerHTML={{ __html: markdown.toHTML(entry.content)}}></div>
                 { isAuth ? <button className="btn btn-link btn-sm"
                     onClick={ handleDelete.bind(this) }>Delete</button> : null }
+                <div className="entry-footer">
+                    <a target="_blank" href={ entryPermalink }><i className="fa fa-link" aria-hidden="true"></i></a>
+                </div>
             </div>
         )
     }

@@ -17,6 +17,11 @@ export class EntryForm extends Component {
             renderMarkdown(entry)
         }
 
+        const handleAuthorChange = event => {
+            entry.author = event.target.value
+            renderMarkdown(entry)
+        }
+
         const handlePublish = event => {
             event.preventDefault()
             publish(entry)
@@ -32,6 +37,11 @@ export class EntryForm extends Component {
                 <div className="form-group">
                     <textarea cols="30" rows="20" className="form-control input-lg"
                         placeholder="Content" onChange={ handleContentChange }></textarea>
+                </div>
+
+                <div className="form-group">
+                    <input type="text" className="form-control input-lg"
+                        placeholder="Author" onChange={ handleAuthorChange } />
                 </div>
 
                 <div className="form-group">
@@ -55,6 +65,7 @@ export class RenderContainer extends Component {
         return (
             <div className="entry">
                 { entry.title ? <h1>{ entry.title }</h1> : null }
+                { entry.author ? <p><em>by { entry.author }</em></p> : null }
                 <div dangerouslySetInnerHTML={{ __html: entry.renderedContent }}></div>
             </div>
         )

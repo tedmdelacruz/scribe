@@ -17,12 +17,18 @@ class Entry extends Model
 
     public function publish()
     {
-        // Generate URL-friendly slug
-        $slug = str_slug($this->title);
+        $shortHash = substr(md5(time()), 0, 6);
 
-        // Handle any slug collisions
-        if (Entry::where(['slug' => $slug])->count() > 0) {
-            $slug = substr(md5($this->title), 0, 6) . '-' . str_slug($this->title);
+        if ($this->title) {
+            // Generate URL-friendly slug
+            $slug = str_slug($this->title);
+
+            // Handle any slug collisions
+            if (Entry::where(['slug' => $slug])->count() > 0) {
+                $slug .= '-' . $shortHash;
+            }
+        } else {
+           $slug = $shortHash; 
         }
 
         $this->is_private = false;

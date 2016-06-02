@@ -6,6 +6,7 @@ import axios from 'axios'
 function reducer(state = {
     entry: {
         title: '',
+        author: '',
         content: '',
         renderedContent: ''
     },
@@ -15,10 +16,10 @@ function reducer(state = {
 }, action) {
     switch(action.type) {
         case RENDER_MARKDOWN:
-            const { title, content } = action.entry
+            const { title, author, content } = action.entry
             return Object.assign({}, state, {
                 entry: {
-                    title, content, 
+                    title, author, content, 
                     renderedContent: markdown.toHTML(action.entry.content)
                 },
                 isPristine: false,

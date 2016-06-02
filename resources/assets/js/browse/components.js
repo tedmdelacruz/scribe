@@ -11,11 +11,12 @@ class Entry extends Component {
 
         return (
             <div className="entry">
-                <h1>{entry.title}</h1>
+                { entry.title ? <h1>{ entry.title }</h1> : null }
+                { entry.author ? <p><em>by { entry.author }</em></p> : null }
                 <div className="entry-content"
                     dangerouslySetInnerHTML={{ __html: markdown.toHTML(entry.content)}}></div>
-                {isAuth ? <button className="btn btn-link btn-sm"
-                    onClick={handleDelete.bind(this)}>Delete</button> : null}
+                { isAuth ? <button className="btn btn-link btn-sm"
+                    onClick={ handleDelete.bind(this) }>Delete</button> : null }
             </div>
         )
     }
@@ -39,11 +40,11 @@ export class EntryList extends Component {
 
         return (
             <div class="entry-list">
-                {isFetching ? <Spinner /> : null}
-                {entries.map((entry, index) => {
-                    return <Entry entry={entry} key={index}
-                        isAuth={user ? true : false} deleteEntry={deleteEntry}/>
-                })}
+                { isFetching ? <Spinner /> : null }
+                { entries.map((entry, index) => {
+                    return <Entry entry={ entry } key={ index }
+                        isAuth={ user ? true : false } deleteEntry={ deleteEntry }/>
+                }) }
             </div>
         )
     }

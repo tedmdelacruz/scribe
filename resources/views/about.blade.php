@@ -11,7 +11,7 @@
                     <hr>
                     <p><em>A case study by Ted Mathew dela Cruz for using ReactJS + Redux + Immutable, ECMAScript 6, with a Laravel 5.2 backend</em></p>
                     <p>
-                        <small><a href="https://github.com/tedmdelacruz/laravel-scribe">Source Code</a></small>
+                        <small><a href="https://github.com/tedmdelacruz/scribe">Source</a></small>
                     </p>
                 </div>
             </div>

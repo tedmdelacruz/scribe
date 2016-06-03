@@ -32,10 +32,10 @@ class EntriesController extends Controller
 
     public function view($slug)
     {
-        $entry = Entry::where(['slug' => $slug])->get();
-        if ($entry->isEmpty()) {
+        $entry = Entry::where(['slug' => $slug])->first();
+        if ( ! $entry) {
             return abort(404);
         }
-        return $entry;
+        return view('view', compact('entry'));
     }
 }

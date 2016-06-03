@@ -47,6 +47,8 @@ class Entry extends Model
 
     public static function getActiveEntries()
     {
-        return Entry::where(['is_active' => Entry::ACTIVE])->get();
+        return Entry::where(['is_active' => Entry::ACTIVE])
+            ->orderBy('id', 'desc')
+            ->get();
     }
 }

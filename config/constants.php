@@ -2,5 +2,5 @@
 
 return [
     'APP_NAME' => 'Scribe',
-    'APP_DESC' => 'A dead simple Markdown journal writer'
+    'APP_DESC' => 'A simple Markdown writer with real-time preview'
 ];

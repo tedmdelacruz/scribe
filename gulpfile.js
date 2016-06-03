@@ -22,5 +22,6 @@ elixir(function(mix) {
         .copy('bower_components/bootstrap/dist/js/bootstrap.min.js', dirs.vendorJs)
 
         .browserify('write/index.js', 'public/js/write.js')
-        .browserify('browse/index.js', 'public/js/browse.js');
+        .browserify('browse/index.js', 'public/js/browse.js')
+        .browserify('view/index.js', 'public/js/view.js');
 });

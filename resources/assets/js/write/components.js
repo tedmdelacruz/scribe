@@ -65,7 +65,7 @@ export class RenderContainer extends Component {
         return (
             <div className="entry">
                 { entry.title ? <h1>{ entry.title }</h1> : null }
-                { entry.author ? <p><em>by { entry.author }</em></p> : null }
+                { entry.author ? <p><em>Written by { entry.author }</em></p> : null }
                 <div dangerouslySetInnerHTML={{ __html: entry.renderedContent }}></div>
             </div>
         )

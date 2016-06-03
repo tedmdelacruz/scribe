@@ -13,7 +13,7 @@ class Entry extends Component {
         return (
             <div className="entry">
                 { entry.title ? <h1>{ entry.title }</h1> : null }
-                { entry.author ? <p><em>by { entry.author }</em></p> : null }
+                { entry.author ? <p><em>Written by { entry.author }</em></p> : null }
                 <div className="entry-content"
                     dangerouslySetInnerHTML={{ __html: markdown.toHTML(entry.content)}}></div>
                 { isAuth ? <button className="btn btn-link btn-sm"

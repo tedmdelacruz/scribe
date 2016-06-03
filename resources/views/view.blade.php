@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12" id="view-entry" data-entry='{!! $entry !!}'>
+        <div class="col-md-12" id="view-entry" data-entry='{{ $entry }}'>
             <!-- Everything here will be overwritten by ReactJS -->
             <div class="entry">
                 @if ($entry->title)

@@ -35,8 +35,14 @@
                     <li {{ Route::is('about') ? "class=active" : null }}><a href="{{ url('/about') }}">About</a></li>
                 </ul>
 
-                <!-- <ul class="nav navbar-nav navbar-right">
-                </ul> -->
+                <ul class="nav navbar-nav navbar-right">
+                    @if ( ! Auth::guest())
+                        <li><p class="navbar-text">{{ Auth::user()->name }}</p></li>
+                        <li>
+                            <a class="navbar-link" href="{{ url('/logout') }}">Logout</a>
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </nav>

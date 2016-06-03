@@ -3,23 +3,33 @@ import { markdown } from 'markdown'
 
 class Entry extends Component {
     render() {
-        const { entry, isAuth, deleteEntry } = this.props
+        const { entry, deleteEntry } = this.props
         const entryPermalink = `${window.baseUrl}/${entry.slug}`
 
-        function handleDelete() {
+        function handleDelete(event) {
+            event.preventDefault()
             deleteEntry(this.props.entry)
         }
 
+        const deleteBtn = deleteEntry
+            ? <a href="#" onClick={ handleDelete.bind(this) } className="btn btn-default">
+                <i className="fa fa-trash-o" aria-hidden="true"></i>
+            </a>
+            : null
+
         return (
-            <div className="entry">
+            <div className="entry clearfix">
                 { entry.title ? <h1>{ entry.title }</h1> : null }
                 { entry.author ? <p><em>Written by { entry.author }</em></p> : null }
                 <div className="entry-content"
                     dangerouslySetInnerHTML={{ __html: markdown.toHTML(entry.content)}}></div>
-                { isAuth ? <button className="btn btn-link btn-sm"
-                    onClick={ handleDelete.bind(this) }>Delete</button> : null }
-                <div className="entry-footer">
-                    <a target="_blank" href={ entryPermalink }><i className="fa fa-link" aria-hidden="true"></i></a>
+                <div className="entry-footer pull-right">
+                    <div className="btn-group">
+                        <a className="btn btn-default" target="_blank" href={ entryPermalink }>
+                            <i className="fa fa-link" aria-hidden="true"></i>
+                        </a> 
+                        { deleteBtn }
+                    </div>
                 </div>
             </div>
         )
@@ -42,12 +52,16 @@ export class EntryList extends Component {
     render() {
         let { isFetching, entries, user, deleteEntry } = this.props
 
+        if ( ! user) {
+            deleteEntry = null
+        }
+
         return (
             <div class="entry-list">
                 { isFetching ? <Spinner /> : null }
                 { entries.map((entry, index) => {
                     return <Entry entry={ entry } key={ index }
-                        isAuth={ user ? true : false } deleteEntry={ deleteEntry }/>
+                        deleteEntry={ deleteEntry }/>
                 }) }
             </div>
         )

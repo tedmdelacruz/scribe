@@ -31,6 +31,10 @@ class Entry extends Model
            $slug = $shortHash; 
         }
 
+        if (empty($this->content)) {
+            $this->content = ""; // FIXME
+        }
+
         $this->is_private = false;
         $this->status = Entry::STATUS_PUBLISHED; 
         $this->slug = $slug;

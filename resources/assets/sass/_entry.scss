@@ -14,4 +14,11 @@
         text-align: justify;
         line-height: 2em;
     }
+
+    pre {
+        border-radius: 0;
+        background-color: #444;
+        color: #fff;
+        border: 0;
+    }
 }
